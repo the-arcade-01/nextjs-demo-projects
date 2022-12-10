@@ -2,7 +2,21 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 
+/* SSR
 export async function getServerSideProps() {
+  const res = await fetch(
+    `https://jherr-pokemon.s3.us-west-1.amazonaws.com/index.json`
+  );
+  return {
+    props: {
+      pokemon: await res.json(),
+    },
+  };
+}
+*/
+
+// Static Site Generation
+export async function getStaticProps() {
   const res = await fetch(
     `https://jherr-pokemon.s3.us-west-1.amazonaws.com/index.json`
   );

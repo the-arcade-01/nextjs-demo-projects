@@ -6,15 +6,17 @@ import {
   UsersIcon,
 } from "@heroicons/react/solid";
 
+import Image from "next/image";
+
 const Header = () => {
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
       {/* Left */}
       <div className="relative flex items-center h-10 cursor-pointer">
-        <img
-          src="https://links.papareact.com/qd3"
+        <Image
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png"
           className="object-contain object-left"
-          width={120}
+          fill
         />
       </div>
 

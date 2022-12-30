@@ -9,7 +9,7 @@ const Showcase = () => {
         <p className="text-blue-400 md:text-[18px]">
           Unhappy with your website?
         </p>
-        <p className="text-[32px] py-2 md:py-4 md:text-[48px]">
+        <p className="text-[32px] flex-wrap py-2 md:py-4 md:text-[48px]">
           We create beautiful and fast web services
         </p>
       </div>
@@ -24,7 +24,7 @@ const Showcase = () => {
       </div>
 
       {/* bottom div */}
-      <div className="mx-10 my-4 ">
+      <div className="mx-10 my-4">
         <p className="text-[32px] flex-wrap md:py-4 md:text-[48px] max-w-[300px] md:mx-40 md:max-w-[400px]">
           Story, emotion and purpose
         </p>
@@ -37,7 +37,7 @@ const Showcase = () => {
           <p className="text-blue-400 font-normal py-4 md:text-[18px] md:mx-40 md:max-w-[400px]">
             Want us to contact you?
           </p>
-          <div className="md:mx-40 md:max-w-[400px]">
+          <div className="md:mx-40 md:max-w-[400px] flex">
             <input
               type="email"
               placeholder="Email"

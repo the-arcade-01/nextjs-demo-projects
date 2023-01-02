@@ -5,7 +5,7 @@ const Showcase = () => {
   return (
     <div className="mx-4 my-8 px-2 py-8 md:m-8 md:px-4 font-medium">
       {/* top div */}
-      <div className="mx-10 my-2 md:mx-40 md:max-w-[550px]">
+      <div className="mx-10 my-2 md:mx-40 md:max-w-[600px] md:px-8">
         <p className="text-blue-400 md:text-[18px]">
           Unhappy with your website?
         </p>

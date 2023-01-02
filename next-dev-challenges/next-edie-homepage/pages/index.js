@@ -3,7 +3,7 @@ import Showcase from "../components/Showcase";
 import Services from "../components/Services";
 import Footer from "../components/Footer";
 import Testimonial from "../components/Testimonial";
-import Team from "../components/Team";
+import Works from "../components/Works";
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <Navbar />
       <Showcase />
       <Services />
-      <Team />
+      <Works />
       <Testimonial />
       <Footer />
     </>

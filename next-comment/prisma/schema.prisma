@@ -45,6 +45,8 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  comments Comment[]
+  likes Like[]
 }
 
 model VerificationToken {
@@ -53,4 +55,35 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Post {
+  id String @id @default(cuid())
+  title String
+  body String
+  comments Comment[]
+}
+
+model Comment {
+  id String @id @default(cuid())
+  message String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId String
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  parent Comment? @relation("ParentChild",fields :[parentId], references: [id], onDelete: Cascade)
+  parentId String?
+  children Comment[] @relation("ParentChild")
+  likes Like[]
+}
+
+model Like {
+  user User @relation(fields:[userId], references: [id], onDelete: Cascade)
+  comment Comment @relation(fields:[commentId], references: [id], onDelete: Cascade)
+  userId String
+  commentId String
+
+  @@id([userId, commentId])
 }

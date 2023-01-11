@@ -1,3 +1,27 @@
+export const chats = [
+  {
+    profileImage: "https://avatars.githubusercontent.com/u/45295388?v=4",
+    username: "meowth",
+    time: "14w",
+    prompt: "Sent you a message",
+    active: true,
+  },
+  {
+    profileImage: "/profile.jpg",
+    username: "fox_chop",
+    time: "2w",
+    prompt: "Sent you a post",
+    active: false,
+  },
+  {
+    profileImage: "https://avatars.githubusercontent.com/u/45295388?v=4",
+    username: "noobie_12",
+    time: "2d",
+    prompt: "Sent you a reel",
+    active: true,
+  },
+];
+
 export const posts = [
   {
     username: "arcade",

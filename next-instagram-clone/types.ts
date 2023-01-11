@@ -11,3 +11,11 @@ export interface Post {
   caption?: string;
   postImage: string;
 }
+
+export interface Chat {
+  profileImage: string;
+  username: string;
+  time: string;
+  prompt: string;
+  active: boolean;
+}

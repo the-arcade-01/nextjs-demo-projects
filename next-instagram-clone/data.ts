@@ -1,3 +1,9 @@
+export const userData = {
+  posts: 10,
+  followers: 295,
+  following: 300,
+};
+
 export const chats = [
   {
     profileImage: "https://avatars.githubusercontent.com/u/45295388?v=4",

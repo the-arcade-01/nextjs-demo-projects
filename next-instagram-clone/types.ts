@@ -19,3 +19,9 @@ export interface Chat {
   prompt: string;
   active: boolean;
 }
+
+export interface UserData {
+  posts: number;
+  followers: number;
+  following: number;
+}

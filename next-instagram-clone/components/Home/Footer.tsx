@@ -11,7 +11,9 @@ const Footer = () => {
       <Link href="/">
         <FiHome size={28} className="cursor-pointer" />
       </Link>
-      <FiSearch size={28} className="cursor-pointer" />
+      <Link href="/search">
+        <FiSearch size={28} className="cursor-pointer" />
+      </Link>
       <CgClapperBoard size={28} className="cursor-pointer" />
       <Link href="/inbox">
         <RiMessengerLine size={28} className="cursor-pointer" />

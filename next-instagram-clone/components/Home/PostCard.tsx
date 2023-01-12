@@ -1,24 +1,9 @@
 import Image from "next/image";
-import { posts } from "../../data";
-import { Post } from "../../types";
-
 import { VscHeart } from "react-icons/vsc";
 import { BsThreeDots } from "react-icons/bs";
 import { IoPaperPlaneOutline } from "react-icons/io5";
 import { RxBookmark } from "react-icons/rx";
 import { RiChat1Line } from "react-icons/ri";
-
-const Posts = () => {
-  return (
-    <>
-      {posts.map((post: Post, index) => (
-        <PostCard key={index} postData={post} />
-      ))}
-    </>
-  );
-};
-
-export default Posts;
 
 const PostCard = ({ postData }: any) => {
   return (
@@ -67,3 +52,5 @@ const PostCard = ({ postData }: any) => {
     </div>
   );
 };
+
+export default PostCard;

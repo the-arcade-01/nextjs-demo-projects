@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import Posts from "./Posts";
+import Posts from "./HomePosts";
 import Stories from "./Stories";
 import Footer from "./Footer";
 

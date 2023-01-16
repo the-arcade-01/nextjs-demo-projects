@@ -1,9 +1,10 @@
-import Login from "./auth/Login";
+import Profile from "@/components/Profile";
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="flex h-screen">
-      <Login />
+      <Profile />
     </div>
   );
-}
+};
+export default Home;

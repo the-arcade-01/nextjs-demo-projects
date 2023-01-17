@@ -1,4 +1,4 @@
-export const user = {
+export const userData = {
   photo: "https://avatars.githubusercontent.com/u/45295388?v=4",
   name: "Nathan Neal",
   bio: "I am a software developer and a big fan of JoJo",

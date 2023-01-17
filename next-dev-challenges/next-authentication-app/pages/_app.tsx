@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Rubik } from "@next/font/google";
+import Navbar from "@/components/Navbar";
 
 const rubik = Rubik({
   weight: ["400", "700"],
@@ -10,6 +11,7 @@ const rubik = Rubik({
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <main className={rubik.className}>
+      <Navbar />
       <Component {...pageProps} />
     </main>
   );

@@ -5,6 +5,8 @@ import { ChangeEvent, FormEvent, useState } from "react";
 
 import Link from "next/link";
 
+import { signIn } from "next-auth/react";
+
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +24,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex py-12">
       <div className="m-auto h-[530px] w-[500px] border-2 border-gray-200 rounded-2xl p-12 flex flex-col gap-4">
         <div className="flex gap-2 items-center cursor-pointer">
           <SiProtocolsdotio size={26} className="text-blue-500" />
@@ -60,7 +62,12 @@ const Signup = () => {
               className=" text-gray-500 cursor-pointer hover:text-blue-500 transition duration-200 ease-in"
             />
           </div>
-          <div className="border-2 border-gray-300 rounded-full p-2">
+          <div
+            className="border-2 border-gray-300 rounded-full p-2"
+            onClick={() =>
+              signIn(null, { callbackUrl: "http://localhost:3000/" })
+            }
+          >
             <FaGithub
               size={18}
               className=" text-gray-500 cursor-pointer hover:text-blue-500 transition duration-200 ease-in"

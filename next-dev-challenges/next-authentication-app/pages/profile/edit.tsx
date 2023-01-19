@@ -1,5 +1,6 @@
 import { SlArrowLeft } from "react-icons/sl";
 import Link from "next/link";
+import { getSession } from "next-auth/react";
 
 const Edit = () => {
   return (
@@ -18,3 +19,19 @@ const Edit = () => {
 };
 
 export default Edit;
+
+export const getServerSideProps = async (context: any) => {
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/auth/Login",
+      },
+    };
+  }
+  return {
+    props: {
+      session,
+    },
+  };
+};

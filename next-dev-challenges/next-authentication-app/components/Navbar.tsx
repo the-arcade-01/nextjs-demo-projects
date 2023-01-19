@@ -2,6 +2,8 @@ import { SiProtocolsdotio } from "react-icons/si";
 import Link from "next/link";
 import { useState } from "react";
 
+import { useSession, signOut } from "next-auth/react";
+
 const Navbar = () => {
   return (
     <div className="flex justify-between items-center px-32 py-8 w-full">
@@ -20,10 +22,11 @@ export default Navbar;
 
 const ProfileMenu = () => {
   const [active, setActive] = useState(false);
+  const { data: session } = useSession();
   return (
     <div>
       <div onClick={() => setActive(!active)} className="cursor-pointer">
-        <p className="font-medium">Nathan Neil</p>
+        <p className="font-medium">{session?.user?.name}</p>
       </div>
       <div
         className={
@@ -36,7 +39,10 @@ const ProfileMenu = () => {
           <li className="hover:bg-gray-100 rounded-lg text-gray-600 px-4 py-2 cursor-pointer text-[16px]">
             My Profile
           </li>
-          <li className="hover:bg-gray-100 rounded-lg text-gray-600 px-4 py-2 cursor-pointer text-[16px]">
+          <li
+            className="hover:bg-gray-100 rounded-lg text-gray-600 px-4 py-2 cursor-pointer text-[16px]"
+            onClick={() => signOut()}
+          >
             Logout
           </li>
         </ul>

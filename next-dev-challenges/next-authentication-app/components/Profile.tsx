@@ -1,9 +1,7 @@
 import Image from "next/image";
-import { userData } from "@/data";
-
 import Link from "next/link";
-
 import { useSession } from "next-auth/react";
+import { useState, useEffect } from "react";
 
 interface UserType {
   image: string;
@@ -11,11 +9,19 @@ interface UserType {
   bio?: string;
   phone?: number;
   email: string;
-  password?: string;
 }
 
 const Profile = () => {
   const { data: session } = useSession();
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    fetch(`/api/user/${session?.user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setUser(data);
+      });
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center mt-3">
@@ -38,12 +44,14 @@ const Profile = () => {
             <p className="text-gray-400 text-sm font-medium">PHOTO</p>
           </div>
           <div className="relative h-12 w-12">
-            <Image
-              src={`${session?.user?.image}`}
-              fill
-              className="object-cover rounded-lg"
-              alt="profile"
-            />
+            {user?.image && (
+              <Image
+                src={`${user.image}`}
+                fill
+                className="object-cover rounded-lg"
+                alt="profile"
+              />
+            )}
           </div>
         </div>
         <div className="border-b-2 border-gray-100 w-full" />
@@ -51,7 +59,7 @@ const Profile = () => {
           <div className="w-[100px]">
             <p className="text-gray-400 text-sm font-medium">NAME</p>
           </div>
-          <p>{session?.user?.name}</p>
+          <p>{user?.name}</p>
         </div>
         <div className="border-b-2 border-gray-100 w-full" />
         <div className="flex items-center py-4 px-10 gap-28">
@@ -59,8 +67,8 @@ const Profile = () => {
             <p className="text-gray-400 text-sm font-medium">BIO</p>
           </div>
           <p>
-            {session?.user?.bio ? (
-              session.user.bio
+            {user?.bio ? (
+              user.bio
             ) : (
               <span className="text-gray-400">Please add bio</span>
             )}
@@ -71,8 +79,8 @@ const Profile = () => {
           <div className="w-[100px]">
             <p className="text-gray-400 text-sm font-medium">PHONE</p>
           </div>
-          {session?.user?.phone ? (
-            session.user.phone
+          {user?.phone ? (
+            user.phone
           ) : (
             <span className="text-gray-400">Please add phone</span>
           )}
@@ -82,17 +90,17 @@ const Profile = () => {
           <div className="w-[100px]">
             <p className="text-gray-400 text-sm font-medium">EMAIL</p>
           </div>
-          <p>{session?.user?.email}</p>
+          <p>{user?.email}</p>
         </div>
         <div className="border-b-2 border-gray-100 w-full" />
         <div className="flex items-center py-4 px-10 gap-28">
           <div className="w-[100px]">
             <p className="text-gray-400 text-sm font-medium">PASSWORD</p>
           </div>
-          {session?.user?.password ? (
+          {user?.password ? (
             <input
               type="password"
-              value={`${session.user.password}`}
+              value={`${user.password}`}
               disabled
               className="bg-white"
             />

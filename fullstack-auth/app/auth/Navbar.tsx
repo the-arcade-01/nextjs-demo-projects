@@ -9,9 +9,9 @@ const Navbar = async () => {
   const session = await getServerSession(authOptions);
   console.log(session);
   return (
-    <nav>
+    <nav className="flex justify-between items-center my-4">
       <Link href={"/"}>
-        <h1>Post</h1>
+        <h1 className="font-bold text-xl">Post</h1>
       </Link>
       <ul>
         {!session?.user && <Login />}

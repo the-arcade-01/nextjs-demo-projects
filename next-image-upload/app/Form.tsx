@@ -27,6 +27,7 @@ const Form = () => {
   const handleRemoveImage = (
     e: MouseEvent<HTMLParagraphElement, globalThis.MouseEvent>
   ) => {
+    // @ts-ignore
     imageRef.current.value = null;
     setMessage("");
     setImageUrl("");
@@ -42,10 +43,16 @@ const Form = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(message, imageUrl, uploadImage);
+    // @ts-ignore
     imageRef.current.value = null;
-    setMessage("");
-    setImageUrl("");
-    setUploadImage(null);
+
+    try {
+      setMessage("");
+      setImageUrl("");
+      setUploadImage(null);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // scroll lock when modal is open

@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Todo App",
-  description: "Todo App build for practicing NextJs",
+  title: "NextJs Todo App",
+  description: "Todo App built in NextJs, Neon DB, Drizzle ORM",
 };
 
 export default function RootLayout({

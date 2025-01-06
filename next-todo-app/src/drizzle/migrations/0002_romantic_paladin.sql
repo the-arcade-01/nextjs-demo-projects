@@ -1,0 +1,1 @@
+ALTER TABLE "todos" ALTER COLUMN "isCompleted" SET NOT NULL;

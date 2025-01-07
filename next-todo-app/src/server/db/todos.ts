@@ -1,4 +1,5 @@
 import { db } from "@/drizzle/db";
+import { todosTable } from "@/drizzle/schema";
 
 export function getTodos(limit?: number) {
   return db.query.todosTable.findMany({
@@ -6,3 +7,5 @@ export function getTodos(limit?: number) {
     limit,
   });
 }
+
+export function createTodo(data: typeof todosTable.$inferInsert) {}

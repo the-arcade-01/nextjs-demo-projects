@@ -18,3 +18,11 @@ export interface Habit {
   goalType: goalType; // week or days eg: 2 times a week or no. of days
   totalCompletedDays: number;
 }
+
+export interface LogWork {
+  id: number;
+  date: string;
+  highlight: string;
+  habitsCompleted: string[]; // eg: ["Workout", "Read book"]
+  details: string;
+}

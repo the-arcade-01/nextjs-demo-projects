@@ -1,23 +1,35 @@
-import { habitList } from "../data/constants";
-import { Habit } from "../data/types";
+import { habitList } from "../services/data/constants";
+import { Habit } from "../services/data/types";
 import { MdEdit, MdRemove } from "react-icons/md";
 import { getFormatedStreak } from "../utils/utils";
 import { FaPlus } from "react-icons/fa6";
 import { IoAnalyticsOutline } from "react-icons/io5";
 import { useState } from "react";
+import Modal from "./ui/Modal";
+import CreateHabitForm from "./forms/CreateHabitForm";
 
 const HabitsList = () => {
   const [sortBy, setSortBy] = useState("Priority");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
     setSortBy(e.target.value);
     console.log(sortBy);
   };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <div className="flex flex-col gap-2 border border-gray-200 rounded-xl p-5 w-1/4">
+    <div className="flex flex-col gap-2 border border-gray-200 rounded-xl p-5 w-1/2">
       <section className="flex flex-row justify-between">
-        <h2 className="font-semibold text-purple-600">All habits progress</h2>
+        <h2 className="font-semibold text-purple-500">All habits progress</h2>
         <div className="relative">
           <select
             value={sortBy}
@@ -36,11 +48,19 @@ const HabitsList = () => {
         ))}
       </section>
       <section className="mt-4">
-        <button className="flex flex-row gap-3 items-center bg-green-500 hover:bg-green-600 active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 px-4 py-2 rounded-lg text-white shadow-md transition duration-200">
+        <button
+          onClick={openModal}
+          className="flex flex-row gap-3 items-center bg-green-500 hover:bg-green-600 active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 px-4 py-2 rounded-lg text-white shadow-md transition duration-200"
+        >
           <FaPlus className="text-lg" />
           <p className="text-sm font-semibold">Add Habit</p>
         </button>
       </section>
+      {isModalOpen && (
+        <Modal onClose={closeModal}>
+          <CreateHabitForm />
+        </Modal>
+      )}
     </div>
   );
 };

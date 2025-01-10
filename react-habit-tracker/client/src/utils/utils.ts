@@ -1,4 +1,4 @@
-import { goalType } from "../data/types";
+import { goalType } from "../services/data/types";
 
 export function randomEmoji() {
   const emojis = ["💪", "🤩", "🔥", "💎", "👍", "🏆", "🎯", "🚀", "🌟", "📈"];
@@ -10,4 +10,8 @@ export function getFormatedStreak(type: goalType, days: number) {
   const unit = type === goalType.DAYS ? "days" : "weeks";
   const emoji = randomEmoji();
   return `${days} ${unit} streak ${emoji}`;
+}
+
+export function getCurrentYear() {
+  return new Date().getFullYear().toString();
 }
